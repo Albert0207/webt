@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Халиуллин А.</title>
+<meta charset="utf-8">
+
+</head>
+<body>
+
+<link href="File_css.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<form name="ays_aad">
+
+<h1>Заполните данные</h1>
+
+<p>Ваше имя*</p>
+<input required type="text" name="ays_name" class = "input1"><br>
+
+<p>Пароль*</p>
+<input required type="text" name="ays_password" class = "input2"><br>
+
+<p>Подтверждение пароля*</p>
+<input required type="text" name="ays_password_confirmation" class = "input3"><br>
+
+<p>Email*</p>
+<input required type="text" name="ays_email" class = "input4"><br>
+
+<p>Тема сообщения</p>
+<input type="text" name="ays_tema" class = "input5"><br>
+
+<p>Сообщение</p>
+<input required type="text" name="ays_message" class = "input6"><br>
+
+<input type="button" value = "Отправить" id = "send">
+<input type="reset" value = "Очистить"> 
+
+<p>* - обозначены обязательные поля для заполнения</p>
+
+</form>
+<script type="text/javascript">
+
+$(document).ready(function()
+{
+$("#send").click(function()
+{
+
+
+	
+let trigger = 0;// Ваше имя
+if(document.ays_aad.ays_name.value == "")
+{
+alert("Введите ваше имя!");
+document.ays_aad.ays_name.focus();
+$(document.ays_aad.ays_name).css("outline","solid red");
+trigger = 1;
+}	
+
+
+	
+if(document.ays_aad.ays_password.value == "")// Пароль 
+{
+alert("Введите ваш пароль!");
+document.ays_aad.ays_password.focus();
+$(document.ays_aad.ays_password).css("outline","solid red");
+trigger = 1;
+}
+
+else if (document.ays_aad.ays_password.value.length < 6)
+{
+alert("Слишком короткий пароль!");
+document.ays_aad.ays_password.focus();
+$(document.ays_aad.ays_password).css("outline","solid red");
+trigger = 1;
+}
+
+if(document.ays_aad.ays_password_confirmation.value == "" || document.ays_aad.ays_password_confirmation.value != document.ays_aad.ays_password.value)// Подтверждение пароля
+{
+alert("Пароли не совпадают!");
+document.ays_aad.ays_password_confirmation.focus();
+$(document.ays_aad.ays_password_confirmation).css("outline","solid red");
+trigger = 1;
+}
+
+
+
+if(document.ays_aad.ays_email.value == "")// Email
+{	
+alert("Введите электронную почту!");
+document.ays_aad.ays_email.focus();
+$(document.ays_aad.ays_email).css("outline","solid red");
+trigger = 1;
+} 
+else if(document.ays_aad.ays_email.value.includes("@") == false)
+{
+alert("Неверно введен адрес электронной почты!");
+$(document.ays_aad.ays_email).css("outline","solid red");
+trigger = 1;
+}
+
+
+
+if(document.ays_aad.ays_message.value == "")// Сообщение
+{
+alert("Введите сообщение!");
+document.ays_aad.ays_message.focus();
+$(document.ays_aad.ays_message).css("outline","solid red");
+trigger = 1;
+} 
+else if (document.ays_aad.ays_message.value.length < 25)
+{
+alert("Слишком короткое сообщение!");
+$(document.ays_aad.ays_message).css("outline","solid red");
+trigger = 1;
+}
+
+
+if (trigger == 0) 
+{
+alert("Данные отправлены!");
+}
+});
+});
+</script>
+
+</body>
+</html>

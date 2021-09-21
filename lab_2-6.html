@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+<meta content="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Халиуллин А.</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+let male=0, female=0, average=0;
+let all=0;
+$(function(){
+$("#male").click(function()
+{
+male++;
+all++;
+});
+$("#female").click(function()
+{
+female++;
+all++;
+});
+$("#average").click(function()
+{
+average++;
+all++;
+});
+$("#button").click(function()
+{
+$('#male_text').css({ 'display': 'block' }).text('До 18 лет: '+ male/all*100+"%");
+$('#female_text').css({ 'display': 'block' }).text('18 - 30: '+ female/all*100+"%");
+$('#average_text').css({ 'display': 'block' }).text('Больше 30: '+average/all*100+"%");
+});
+});
+</script>
+
+</head>
+
+<body>
+<h1>Опрос</h1>
+<form>
+
+<p>Сколько Вам лет?</p>
+<div>
+<input type="radio" id="male" name="contact" value="male">
+<label for="male">До 18 лет</label>
+<input type="radio" id="female" name="contact" value="female">
+<label for="female">18 - 30</label>
+<input type="radio" id="average" name="contact" value="average">
+<label for="average">Больше 30</label>
+</div>
+<br>
+<div>
+<input type="button" id="button" value="Узнать результаты">
+
+</div>
+</form>
+
+<p id="male_text"></p>
+<p id="female_text"></p>
+<p id="average_text"></p>
+
+</body>
+</html>
