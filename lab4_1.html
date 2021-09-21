@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Халиуллин А.</title> 
+	<link rel="stylesheet" href="jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<script src="jquery-ui.js"></script>
+</head>
+<body>
+<h1>Вариант 7</h1>
+<h2>Одни из самых популярных направлений:</h2>
+<img src="https://c.wallhere.com/photos/0e/23/5570x3714_px_Cityscape_Moscow_river_Urban-1384121.jpg!d" alt="" width="300px">	<img src="https://im0-tub-ru.yandex.net/i?id=211713a791fe8fe02e1cc354370b8c47&n=13&exp=1" alt="" width="305px">
+<img src="https://tourtrips.ru/wp-content/uploads/bogatyr_promo1.png" alt="" width="316px">	
+<span id="accordion" >
+	<h2>Москва</h2> <div style="height: 600px;">
+	  <h3>Москва</h3>			
+Москва -  столица России, город федерального значения, административный центр Центрального федерального округа и центр Московской области, в состав которой не входит. Крупнейший по численности населения город России и её субъект — 12 655 050человек (2021), самый населённый из городов, полностью расположенных в Европе, входит в десятку городов мира по численности населения, крупнейший русскоязычный город в мире. Центр Московской городской агломерации. 	
+<br>
+</div>
+	<h2>Санкт-Петербург</h2> 
+	<div style="height: 600px;">
+	  <h3>Санкт-Петербург</h3>   				
+	  Санкт-Петербург - второй по численности населения город России. Город федерального значения. Административный центр Северо-Западного федерального округа. Основан 16 (27) мая 1703 года царём Петром I. В 1712—1918 годах — столица Российского государства<br>
+	</div> 
+  <h2>Сочи</h2> 
+	<div style="height: 600px;">
+	  <h3>Сочи</h3>   				
+	 Сочи - город в России, расположен на северо-восточном побережье Чёрного моря (Черноморское побережье России) в Краснодарском крае, на расстоянии 1623 км от Москвы. Административный центр муниципального образования город-курорт Сочи. 
+	</div> 
+	</span>
+  <br>
+  <h2>Заинтересовало? Покупайте билеты!</h2>
+<input type="button" value="Купить билет!" id="buy" style="background-color: white; padding: 10px; color: blue; font-size: large;">
+
+	<div id="dialog" title="Купить билет!">
+        <h3>Данные для билета:</h3>
+        <form>
+          Фамилия: <input type="text"><br><br>
+		 Имя: <input type="text"><br><br>
+     Отчество: <input type="text"><br><br>
+     Дата рождения:  <input type="text"  class="date"><br><br>
+    Город прилета: <input type="text"  class="city"><br><br>
+		Количество багажа (кг): <p style="display: inline;" id="sliderValue"></p>
+    <br><br>
+    <div class="slider" style="width: 100%;"></div> <br>
+    Промо-код: <input type="text" title="У Вас есть промокод? Воспользуйтесь им немедленно!"><br><br>
+          <label>Стоимость: </label><span id="stoim"></span> руб  <span style="font-weight: 900; font-size: large;" title="Расчет производится в зависимости от выбора города и веса багажа.">&#63;</span><br><br>
+        </form>
+        <input type="button" class="kup" value="Купить">
+      </div>
+	  <div class="pp" title="Подтверждение">Вы подтверждаете покупку билета?</div>
+	  <div class="da" title="Готово">Спасибо за приобретение билета! Хорошего полета!</div>
+<script type="text/javascript">
+    $(function(){
+		$("#accordion" ).accordion({  collapsible: true });
+		$('#dialog').dialog({ autoOpen: false, width: 400 });
+		  $.datepicker.regional['ru'] = {
+	closeText: 'Закрыть',
+	prevText: 'Предыдущий',
+	nextText: 'Следующий',
+	currentText: 'Сегодня',
+	monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+	monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+	dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+	dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+	dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+	weekHeader: 'Не',
+	dateFormat: 'dd.mm.yy',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+};
+	$.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
+		  $(".date").datepicker({ });
+		$("#buy").click(function(){ 
+        $( "#dialog" ).dialog('open'); 
+      })
+	  var city = ["Москва", "Сочи", "Санкт-Петербург"]; 
+	  $(".city" ).click(function(){
+		$(".city").autocomplete({ source: city });  
+	}); 
+	$('.slider').slider({
+		    min: 0,
+	    	max: 30,
+        change: function (event, ui){
+            var val = $('.slider').slider('value');
+            $('#sliderValue').html(val);
+            var k = $('#sliderValue').html();
+            var stoim = 2500*(1+k/10);
+            document.getElementById('stoim').innerHTML = Math.floor(stoim);
+        }
+    });
+  $( function() {
+    $( document ).tooltip();
+  } );
+  $(".kup" ).click(function(){
+		$('.pp').dialog('open'); })
+	$('.pp').dialog({ autoOpen: false, width: 300, buttons:{
+        "Да!": function(){ $( ".da" ).dialog('open'),$('.pp').dialog('close'), 	$('#dialog').dialog('close');   },
+        "Нет": function(){$('.pp').dialog('close'), 	$('#dialog').dialog('close'); }
+    }})
+	$( ".da" ).dialog({autoOpen: false, width: 300}); 
+	})
+
+	</script>
+</body>
+</html>
