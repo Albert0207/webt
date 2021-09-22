@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Халиуллин А.</title> 
+	<script type="text/javascript" src="jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+	<h1>Новости</h1>
+<h3>«Тошнит от этого»</h3>
+<p>За что интернет возненавидел самую популярную TikTok-блогершу мира? </p>
+<img src="https://icdn.lenta.ru/images/2021/09/15/15/20210915153220227/detail_95d92210c0c318d73ac26cae8bf2a2dd.jpg" width="300px" alt=""><br>
+<br>
+<h3>Крестника Деда Хасана Смоляна осудили по антиворовской статье</h3>
+<p>Коронованный Дедом Хасаном вор в законе Смолян осужден на восемь с половиной лет</p>
+<img src="https://icdn.lenta.ru/images/2021/09/22/15/20210922151450908/pic_31243664a9fc01b29b27b55ca39eb11e.jpg" width="300px" alt=""><br>
+<br>
+<h3>Коррупция, кумовство и бедность.</h3>
+<p>Как «Восточную Швейцарию» охватил страшнейший за 170 лет кризис</p>
+<img src="https://icdn.lenta.ru/images/2021/09/17/14/20210917145719221/detail_9bac30a677fdc5ad59e1173c222a1b11.jpg" width="300px" alt=""><br>
+<br>
+<h3>«На США останется пятно позора»</h3>
+<p>Как автор «Таксиста» снял триллер о покере и безжалостных американских палачах в Ираке</p>
+<img src="https://icdn.lenta.ru/images/2021/09/21/19/20210921194939051/detail_ceb04aafb417c30adc46cfc5df1c2875.jpg" width="300px" alt=""><br>
+<br> 
+<h3>На Украине совершено покушение на советника Владимира Зеленского. </h3>
+<p> Его автомобиль расстреляли из автоматов</p>
+<img src="https://icdn.lenta.ru/images/2021/09/22/14/20210922145338029/brief_af3fccfc840c8cece30c609f046119bf.jpg" width="300px" alt=""><br>
+<br> 
+</div>
+<script type="text/javascript">
+	let tek = 5;
+			function lab(str) {
+				if (str.length==0) {
+    document.getElementById("j").innerHTML="";
+    return;}
+  if (window.XMLHttpRequest) {
+    xmlhttp=new XMLHttpRequest();} else { 
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("j").innerHTML=this.responseText;
+    }}
+		xmlhttp.open("GET","1.php?tek="+tek,true);
+		xmlhttp.send();
+		tek+=5;}
+		 </script>
+	<span id = "j"></span>
+	<form>
+		<input onclick = "lab(this.value)" type="button" value="еще новости">
+	</form>
+</body>
+</html>
